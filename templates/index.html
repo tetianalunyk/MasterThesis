@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8" />
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+        integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link rel="stylesheet" href="{{ url_for('static', filename='index.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='sidebar.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='inputs.css') }}">
+
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+        integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+
+    <script src="https://cdn.jsdelivr.net/npm/less@4.1.1"></script>
+
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+    <script src="{{ url_for('static', filename='fetch-data.js') }}"></script>
+    <script src="{{ url_for('static', filename='sidebar.js') }}"></script>
+
+    <title>Головна</title>
+</head>
+
+<body>
+    <div class="hamburger">
+        <div class="line"></div>
+        <div class="line"></div>
+        <div class="line"></div>
+    </div>
+    <div class="menu">
+
+        <div class="menu-item">
+            <a href="/hatchinson_yavna" class="menu-item">Хатчинсон явна</a>
+        </div>
+        <div class="menu-item">
+            <a href="/hatchinson_neyavna" class="menu-item">Хатчинсон неявна</a>
+        </div>
+        <div class="menu-item">
+            <a href="/example" class="menu-item">Приклад: система 2 рівнянь</a>
+        </div>
+        <div class="menu-item">
+            <a href="/systema" class="menu-item">SIR Model</a>
+        </div>
+    </div>
+    <main role="main" class="content" style="margin: 10px">
+        <header>
+            {% block header %}{% endblock %}
+        </header>
+        {% block content %}{% endblock %}
+    </main>
+</body>
+
+</html>

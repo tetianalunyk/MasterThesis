@@ -1,0 +1,40 @@
+{% extends 'index.html' %}
+
+{% block content %}
+<div id="tableResult" style="width:25%;right:0;"></div>
+<div class="main-content">
+    <h1>Хатчинсон неявна схема розв'язок</h1>
+    <img class="hatchinson" src="../static/formulas/hatchinson.jpg"></img>
+    <br />
+    <br />
+
+    <form id="solve-form" method="post" action="/calculate/hatchinson_neyavna">
+        <span>Крок h:</span>
+        <input class="inputs" id="h" name="h" placeholder="h" required size="10">
+        <br />
+        <br />
+
+        <span>y' = </span>
+        <input class="inputs formula" id="m" name="m" placeholder="m" required>
+        <span> * ( 1 - y * ( t - </span>
+        <input class="inputs formula" id="tau" name="tau" placeholder="τ" required>
+        <span> ) / </span>
+        <input class="inputs formula" id="K" name="K" placeholder="K" required>
+        <span> ) * y</span><br>
+
+        <br />
+
+        <span>Початкова функція:</span>
+        <br />
+        <input class="inputs" id="func" name="func" placeholder="введіть початкову функцію" required size="30">
+
+        <input type="submit" value="Знайти" class="btn btn-outline-success my-2 my-sm-0">
+    </form>
+
+    <p id="result"></p>
+
+    <img id="plot" />
+</div>
+
+
+{% endblock %}

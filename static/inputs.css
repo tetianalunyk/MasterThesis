@@ -1,0 +1,45 @@
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+.inputs{
+  text-align:center;
+}
+
+.inputs{
+  outline: 0;
+  border-width: 0 0 2px;
+  border-color: black;
+  font-family: 'Times New Roman';
+  font-size: 1.1em;
+  font-style: italic;
+  width: 95px;
+}
+
+span{
+  font-family: 'Times New Roman';
+  font-size: 1.2em;
+  font-style: italic;
+}
+
+input:focus {
+  border-color: green
+}
+
+input[type=submit]{
+  margin: 25px 5px 5px;
+}
+
+.formula {
+    width: 50px !important;
+}
+
+.withPad {
+    margin: 5px;
+}
+
+.function {
+    width: 230px !important;
+}

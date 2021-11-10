@@ -1,0 +1,62 @@
+{% extends 'index.html' %}
+
+{% block content %}
+<div id="tableResult" style="width:25%;right:0;"></div>
+<div class="main-content">
+    <h1>Система</h1>
+    <div class="container">
+        <div>
+            <img class="sir" src="../static/formulas/SIR.png"></img>
+            <br />
+        </div>
+        <form id="solve-form" method="post" action="/calculate/systema">
+            <span>Крок h:</span>
+            <input class="inputs" id="h" name="h" placeholder="h" required size="10">
+            <br />
+
+            <span>α: </span>
+            <input class="inputs withPad" id="alpfa" name="alpfa" placeholder="введіть α" required>
+            <br />
+
+            <span>β: </span>
+            <input class="inputs withPad" id="beta" name="beta" placeholder="введіть β" required>
+            <br />
+
+            <span>γ: </span>
+            <input class="inputs withPad" id="gama" name="gama" placeholder="введіть γ" required>
+            <br />
+
+            <span>τ&#8321;: </span>
+            <input class="inputs withPad" id="tau_1" name="tau_1" placeholder="введіть τ&#8321;" required>
+            <br />
+
+            <span>τ&#8322;: </span>
+            <input class="inputs withPad" id="tau_2" name="tau_2" placeholder="введіть τ&#8322;" required>
+            <br />
+            <br />
+
+            <span>Початкова функція :</span>
+            <br />
+            <input class="inputs function" id="func_1" name="func_1" placeholder="введіть початкову функцію" required
+                width="140">
+            
+            <span>Початкова функція:</span>
+            <br />
+            <input class="inputs function" id="func_2" name="func_2" placeholder="введіть початкову функцію" required
+                width="140">
+            
+            <span>Початкова функція:</span>
+            <br />
+            <input class="inputs function" id="func_3" name="func_3" placeholder="введіть початкову функцію" required
+                width="140">
+
+            <input type="submit" value="Знайти" class="btn btn-outline-success my-2 my-sm-0">
+        </form>
+    </div>
+
+    <p id="result"></p>
+
+    <img id="plot" />
+</div>
+
+{% endblock %}
