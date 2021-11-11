@@ -1,6 +1,6 @@
 import numpy as np
 import parser
-import os
+import os, shutil
 import uuid
 import matplotlib.pyplot as plt
 import numpy as np
@@ -51,10 +51,23 @@ class Hatchinson_Yavna:
 
         plt.plot(t, x)
 
-        uuid_png = uuid.uuid4().hex + ".png"
-        path = os.path.join(app.root_path, 'static', 'images', uuid_png)
+        filepath = uuid.uuid4().hex + ".png"
+        path = os.path.join(app.root_path, 'static', 'images', filepath)
+
+        folder = os.path.join(app.root_path, 'static', 'images')
+
+        for item in os.listdir(folder):
+            file = os.path.join(folder, item)
+            try:
+                if os.path.isfile(file) or os.path.islink(file):
+                    os.unlink(file)
+                elif os.path.isdir(file):
+                    shutil.rmtree(file)
+            except Exception as e:
+                print('Failed to delete %s. Reason: %s' % (file, e))
+
         plt.savefig(path, transparent=True)
-        url_png = url_for("static", filename=f'images/{uuid_png}')
+        url_png = url_for("static", filename=f'images/{filepath}')
         
         return url_png
         

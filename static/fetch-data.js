@@ -2,7 +2,6 @@ document.addEventListener('DOMContentLoaded', () => {
 
     const ajaxSend = async (formData) => {
         const form = document.getElementById('solve-form');
-        debugger;
         const fetchResp = await fetch(form.action, {
             method: 'POST',
             body: formData
@@ -27,8 +26,8 @@ document.addEventListener('DOMContentLoaded', () => {
         ajaxSend(formData)
             .then((response) => {
                 var data = JSON.parse(response);
-                debugger;
                 var img = document.getElementById('plot');
+                
                 img.setAttribute("src", data.img);
                 generateTable(data.t, data.x, data.length);
             })
@@ -40,6 +39,10 @@ document.addEventListener('DOMContentLoaded', () => {
 
     generateTable = (t, x, length) => {
         let div = document.getElementById("tableResult");
+
+        //clear already created table before
+        div.innerHTML = '';
+
         div.classList = "container"
         t_data = t.split(',').map(Number);
         x_data = x.split(',').map(Number);

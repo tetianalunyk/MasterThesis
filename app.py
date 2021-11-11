@@ -93,8 +93,6 @@ def calculate_hatchinson_yavna():
     method = Hatchinson_Yavna(step, tau, m, K, formula)
 
     t, x = method.calculate()
-    print(len(t))
-    print(len(x))
 
     img_path = method.draw_save(app, t, x)
 
@@ -122,8 +120,6 @@ def calculate_hatchinson_neyavna():
     method = Hatchinson_Neyavna(step, tau, m, K, formula)
 
     t, x = method.calculate()
-    print(len(t))
-    print(len(x))
 
     img_path = method.draw_save(app, t, x)
 
