@@ -3,32 +3,33 @@
 {% block content %}
 <div id="tableResult" style="width:25%;right:0;"></div>
 <div class="main-content">
-    <h1>Хатчинсон Явна схема розв'язок</h1>
-    <img class="hatchinson" src="../static/formulas/hatchinson.jpg"></img>
+    <h1>Рівняння Хатчинсона. Явна схема Ейлера</h1>
     <br />
-    <br />
+    <form id="solve-form" method="post" action="/calculate/hatchinson_yavna" class="form">
+        <div style="padding-left: 15px;">
+            <img class="hatchinson" src="../static/formulas/hatchinson.jpg"></img>
+            <br />
+            <span>Крок h:</span>
+            <input class="inputs" id="h" name="h" placeholder="h" required size="10">
+        </div>   
+        <div style="padding-left: 15px;">
+            <span>y' = </span>
+            <input class="inputs" id="m" name="m" placeholder="m" required>
+            <span> * ( 1 - y * ( t - </span>
+            <input class="inputs" id="tau" name="tau" placeholder="τ" required>
+            <span> ) / </span>
+            <input class="inputs " id="K" name="K" placeholder="K" required>
+            <span> ) * y</span><br>
 
-    <form id="solve-form" method="post" action="/calculate/hatchinson_yavna">
-        <span>Крок h:</span>
-        <input class="inputs" id="h" name="h" placeholder="h" required size="10">
-        <br />
-        <br />
+            <br />
 
-        <span>y' = </span>
-        <input class="inputs formula" id="m" name="m" placeholder="m" required>
-        <span> * ( 1 - y * ( t - </span>
-        <input class="inputs formula" id="tau" name="tau" placeholder="τ" required>
-        <span> ) / </span>
-        <input class="inputs formula" id="K" name="K" placeholder="K" required>
-        <span> ) * y</span><br>
+            <span>Початкова функція:</span>
+            <input class="inputs" id="func" name="func" placeholder="f(x)" required size="30">
+            
+            <input type="submit" value="Знайти" class="btn  my-2 my-sm-0" style="margin-left: 184px; padding: 20px; width: 115px; background-color: rgb(0 123 255 / 20%); border-radius: 16px;">
+        </div>
+        
 
-        <br />
-
-        <span>Початкова функція:</span>
-        <br />
-        <input class="inputs" id="func" name="func" placeholder="введіть початкову функцію" required size="30">
-
-        <input type="submit" value="Знайти" class="btn btn-outline-success my-2 my-sm-0">
     </form>
 
     <p id="result"></p>

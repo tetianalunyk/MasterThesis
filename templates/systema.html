@@ -3,60 +3,57 @@
 {% block content %}
 <div id="tableResult" style="width:25%;right:0;"></div>
 <div class="main-content">
-    <h1>Система</h1>
+    <h1>SIR модель</h1>
     <div class="container">
-        <div>
-            <img class="sir" src="../static/formulas/SIR.png"></img>
-            <br />
-        </div>
-        <form id="solve-form" method="post" action="/calculate/systema">
-            <span>Крок h:</span>
-            <input class="inputs" id="h" name="h" placeholder="h" required size="10">
-            <br />
+        <form id="solve-form" method="post" action="/calculate/systema" class="formSIR">
+            <div style="padding-left: 10px;">
+                <img class="sir" src="../static/formulas/SIR.png" style="width: 380px;"></img>
+                <br />
+                <input type="submit" value="Знайти" class="btn my-2 my-sm-0" style="margin-top: 20px !important; margin-left: 20px; padding: 20px; width: 115px; background-color: rgb(0 123 255 / 20%); border-radius: 16px;">
+            </div>
+            <div style="padding-left: 30px;">
+                <span>Крок h:</span>
+                <input class="inputs" id="h" name="h" placeholder="h" required size="10">
+                <br />
+                <span>τ&#8321;: </span>
+                <input class="inputs withPad" id="tau_1" name="tau_1" placeholder="τ&#8321;" required>
+                <br />
 
-            <span>α: </span>
-            <input class="inputs withPad" id="alpfa" name="alpfa" placeholder="введіть α" required>
-            <br />
+                <span>τ&#8322;: </span>
+                <input class="inputs withPad" id="tau_2" name="tau_2" placeholder="τ&#8322;" required>
+            </div>
+            <div style="padding-left: 30px;">
+                <span>α: </span>
+                <input class="inputs withPad" id="alpfa" name="alpfa" placeholder="α" required>
+                <br />
 
-            <span>β: </span>
-            <input class="inputs withPad" id="beta" name="beta" placeholder="введіть β" required>
-            <br />
+                <span>β: </span>
+                <input class="inputs withPad" id="beta" name="beta" placeholder="β" required>
+                <br />
 
-            <span>γ: </span>
-            <input class="inputs withPad" id="gama" name="gama" placeholder="введіть γ" required>
-            <br />
-
-            <span>τ&#8321;: </span>
-            <input class="inputs withPad" id="tau_1" name="tau_1" placeholder="введіть τ&#8321;" required>
-            <br />
-
-            <span>τ&#8322;: </span>
-            <input class="inputs withPad" id="tau_2" name="tau_2" placeholder="введіть τ&#8322;" required>
-            <br />
-            <br />
-
-            <span>Початкова функція :</span>
-            <br />
-            <input class="inputs function" id="func_1" name="func_1" placeholder="введіть початкову функцію" required
-                width="140">
-            
-            <span>Початкова функція:</span>
-            <br />
-            <input class="inputs function" id="func_2" name="func_2" placeholder="введіть початкову функцію" required
-                width="140">
-            
-            <span>Початкова функція:</span>
-            <br />
-            <input class="inputs function" id="func_3" name="func_3" placeholder="введіть початкову функцію" required
-                width="140">
-
-            <input type="submit" value="Знайти" class="btn btn-outline-success my-2 my-sm-0">
+                <span>γ: </span>
+                <input class="inputs withPad" id="gama" name="gama" placeholder="γ" required>
+                <br />
+            </div>
+            <div style="padding-left: 30px;">
+                <span>Початкові функції :</span>
+                <br />
+                <input class="inputs" id="func_1" style="width: 150px;" name="func_1" placeholder="φ(x)" required
+                    width="140">
+                <br />
+                <input class="inputs" id="func_2" style="width: 150px;" name="func_2" placeholder="ψ(x)" required
+                    width="140">
+                <br />
+                <input class="inputs" id="func_3" style="width: 150px;" name="func_3" placeholder="ξ(x)" required
+                    width="140">
+                
+            </div>
         </form>
     </div>
 
     <p id="result"></p>
 
-    <img id="plot" />
+    <img id="plot" style="margin-top: 239px !important"/>
 </div>
 
 {% endblock %}

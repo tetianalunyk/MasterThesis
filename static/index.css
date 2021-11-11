@@ -22,6 +22,7 @@
 
 .hatchinson {
     width: 250px !important;
+    display: flex;
 }
 
 #plot {
@@ -32,16 +33,25 @@
 
 @import "https://fonts.googleapis.com/css?family=Poppins:300,400,500,600,700";
 body {
-    font-family: 'Poppins', sans-serif;
-    background: #ffffff;
+    font-family: 'Comic Sans MS', 'Comic Sans', 'cursive';
+    background: linear-gradient(45deg, #0000, #D2F7F1) !important
+}
+
+html {
+    height: 100%;
+    background: linear-gradient(45deg, #0000, #D2F7F1) !important;
 }
 
 p {
-    font-family: 'Poppins', sans-serif;
+    font-family: 'Comic Sans MS', 'Comic Sans', 'cursive';
     font-size: 1.1em;
     font-weight: 300;
     line-height: 1.7em;
     color: rgb(158, 144, 144);
+}
+
+h1 {
+    font-family: 'Comic Sans MS', 'Comic Sans', 'cursive';
 }
 
 a,
@@ -204,37 +214,102 @@ a.article:hover {
     position: absolute;
 }
 
-table {
-    font-family: Arial, Helvetica, sans-serif;
-    border-collapse: collapse;
-    width: 100%;
-  }
-  
-  table td, table th {
-    border: 1px solid #ddd;
-    padding: 8px;
-  }
-  
-  table tr:nth-child(even){background-color: #f2f2f2;}
-  
-  table tr:hover {background-color: #ddd;}
-  
-  table th {
-    padding-top: 12px;
-    padding-bottom: 12px;
-    text-align: left;
-    background-color: #04AA6D;
-    color: white;
-  }
-
-  .sir {
-    width: 350px !important;
-  }
-
-  .container {
+.container {
+	position: absolute;
     display: flex;
     gap: 10px;
-    gap: 10px 20px; /* row-gap column gap */
+    gap: 10px 20px; 
     row-gap: 10px;
     column-gap: 20px;
-  }
+}
+
+table {
+	width: 500px;
+	border-collapse: collapse;
+	box-shadow: 0 0 20px rgba(0,0,0,0.1);
+}
+
+th,
+td {
+	background-color: rgba(192,192,192,0.3);
+	color: #000;
+    border: 1px solid #ddd;
+    padding: 8px;
+}
+
+th {
+	text-align: left;
+}
+
+thead th {
+	background-color: #55608f;
+}
+
+tbody tr:hover {
+        background-color: rgba(255,255,255,1);
+    }
+tbody td {
+		position: relative;
+}
+tbody td:hover:before {
+    content: "";
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: -9999px;
+    bottom: -9999px;
+    background-color: rgba(255,255,255,1);
+    z-index: -1;
+}
+
+.form {
+    background: white;
+    padding: 3em;
+    height: 220px;
+    border-radius: 20px;
+    border-left: 1px solid white;
+    border-top: 1px solid white;
+    backdrop-filter: blur(10px);
+    box-shadow: 20px 20px 40px -6px rgba(0,0,0,0.2);
+    text-align: center;
+    position: relative;
+    transition: all 0.2s ease-in-out;
+    display: flex;
+    width: 85%;
+    z-index: 0;
+}
+
+.formSIR {
+    background: white;
+    padding: 2em;
+    height: 260px;
+    border-radius: 20px;
+    border-left: 1px solid white;
+    border-top: 1px solid white;
+    backdrop-filter: blur(10px);
+    box-shadow: 20px 20px 40px -6px rgba(0,0,0,0.2);
+    text-align: center;
+    position: relative;
+    transition: all 0.2s ease-in-out;
+    display: flex;
+    width: 92%;
+    z-index: 0;
+}
+
+input {
+    background: transparent;
+    width: 200px;
+    padding: 1em;
+    margin-bottom: 2em;
+    border: none;
+    border-left: 1px solid white;
+    border-top: 1px solid white;
+    border-radius: 5000px;
+    backdrop-filter: blur(5px);
+    box-shadow: 4px 4px 60px rgba(0,0,0,0.2);
+    color: #000;
+    font-family: Montserrat, sans-serif;
+    font-weight: 500;
+    transition: all 0.2s ease-in-out;
+    text-shadow: 2px 2px 4px rgba(0,0,0,0.2);
+}

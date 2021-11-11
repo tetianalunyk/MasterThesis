@@ -43,6 +43,7 @@ body {
     top: 0;
     left: -320px;
     transition: left .1s;
+    z-index: 1;
   }
   
   .menu-item:first-child {

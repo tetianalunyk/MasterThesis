@@ -3,26 +3,25 @@
 {% block content %}
 <div id="tableResult" style="width:25%;right:0;"></div>
 <div class="main-content">
-    <h1>Приклад</h1>
+    <h1>Приклад: система рівнянь з двома запізненнями</h1>
     <br />
-    <br />
-
-    <form id="solve-form" method="post" action="/calculate/example">
-        <span>x' = 2 * x ( t - 1 ) + y ( t - 1 ) + 2 * y ( t - 2 ) + 6 * t</span>
-        <br />
-        <span>y' = 4 * x ( t - 1 ) + 2 * x ( t - 2 ) + y ( t - 1 ) + 2 * t</span>
-
-        <br />
-        <span>Початкова функція:</span>
-        <br />
-        <span>x ( t ) = t + 2</span>
-        <br />
-        <span>y ( t ) = 2 * t</span>
-        <br />
-        <span>Крок h:</span>
-        <input class="inputs" id="h" name="h" placeholder="h" required size="10">
-        <br />
-        <input type="submit" value="Знайти" class="btn btn-outline-success my-2 my-sm-0">
+    <form id="solve-form" method="post" action="/calculate/example" class="form">
+        <div style="padding-left: 15px;">
+            <span>x' = 2 * x ( t - 1 ) + y ( t - 1 ) + 2 * y ( t - 2 ) + 6 * t</span>
+            <br />
+            <span>y' = 4 * x ( t - 1 ) + 2 * x ( t - 2 ) + y ( t - 1 ) + 2 * t</span>
+            <br />
+            <span>Початкова функція:</span>
+            <br />
+            <span>x ( t ) = t + 2 , t є [ - 2 , 0 ]</span>
+            <br />
+            <span>y ( t ) = 2 * t , t є [ - 2 , 0 ]</span>
+        </div>  
+        <div style="padding-left: 15px;">
+            <span style="padding-left: 50px;">Крок h:</span>
+            <input class="inputs" id="h" name="h" placeholder="h" required size="10">
+            <input type="submit" value="Знайти" class="btn  my-2 my-sm-0" style="margin-left: 84px; padding: 20px; width: 115px; background-color: rgb(0 123 255 / 20%); border-radius: 16px;">
+        </div>
     </form>
 
     <p id="result"></p>

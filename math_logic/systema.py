@@ -105,7 +105,7 @@ class Systema:
 
         uuid_png = uuid.uuid4().hex + ".png"
         path = os.path.join(app.root_path, 'static', 'images', uuid_png)
-        plt.savefig(path)
+        plt.savefig(path, transparent=True)
         url_png = url_for("static", filename=f'images/{uuid_png}')
         
         return url_png
