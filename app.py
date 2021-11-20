@@ -4,6 +4,7 @@ from math_logic.hatchinson_yavna import Hatchinson_Yavna
 from math_logic.hatchinson_neyavna import Hatchinson_Neyavna
 from math_logic.example import Example
 from math_logic.systema import Systema
+from math_logic.kermaka import Kermaka
 import numpy as np
 
 app = Flask(__name__)
@@ -24,7 +25,7 @@ def calculate_example():
 
     t, x, y, x_tochne, y_tochne = method.calculate()
 
-    img_path = method.draw_save(app, t, x, y, x_tochne, y_tochne)
+    img_path = method.draw_save(app, t[1:-1], x[1:-1], y[1:-1], x_tochne[1:-1], y_tochne[1:-1])
 
     x_string = to_str(x)
 
@@ -59,7 +60,7 @@ def calculate_systema():
 
     t, x, y, z = method.calculate()
 
-    img_path = method.draw_save(app, t, x, y, z)
+    img_path = method.draw_save(app, t[1:-1], x[1:-1], y[1:-1], z[1:-1])
 
     x_string = to_str(x)
 
@@ -94,7 +95,7 @@ def calculate_hatchinson_yavna():
 
     t, x = method.calculate()
 
-    img_path = method.draw_save(app, t, x)
+    img_path = method.draw_save(app, t[1:-1], x[1:-1])
 
     x_string = to_str(x)
 
@@ -121,7 +122,7 @@ def calculate_hatchinson_neyavna():
 
     t, x = method.calculate()
 
-    img_path = method.draw_save(app, t, x)
+    img_path = method.draw_save(app, t[1:-1], x[1:-1])
 
     x_string = to_str(x)
 
@@ -136,6 +137,37 @@ def calculate_hatchinson_neyavna():
     
     return obj
 
+@app.route('/kermaka')
+def kermaka():
+    return render_template('kermaka.html')
+
+@app.route('/calculate/kermaka', methods=['POST'])
+def calculate_kermaka():
+    step = float(request.form['h'])
+    tau_1 = float(request.form['tau_1'])
+    tau_2 = float(request.form['tau_2'])
+    func_1 = str(request.form['func_1'])
+    func_2 = str(request.form['func_2'])
+    func_3 = str(request.form['func_3'])
+
+    method = Kermaka(step, tau_1, tau_2, func_1, func_2, func_3)
+
+    t, x, y, z = method.calculate()
+
+    img_path = method.draw_save(app, t[1:-1], x[1:-1], y[1:-1], z[1:-1])
+
+    x_string = to_str(x)
+
+    t_string = to_str(t)
+
+    obj = {
+        'img': img_path,
+        't': t_string,
+        'x': x_string,
+        'length': str(len(t))
+        }
+    
+    return obj
 
 def to_str(var):
     return str(list(np.reshape(np.asarray(var), (1, np.size(var)))[0]))[1:-1]

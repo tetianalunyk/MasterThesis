@@ -26,9 +26,9 @@ class Hatchinson_Yavna:
         while i < t.size:
             if t[i]-self.tau <= 0:
                 k = k+1
-                x[i] = abs(x[i-1] + self.step * self.f(t[i-1], x[i-1], self.fi(t[i-1]-self.tau)))
+                x[i] = x[i-1] + self.step * self.f(t[i-1], x[i-1], self.fi(t[i-1]-self.tau))
             else:
-                x[i] = abs(x[i-1] + self.step * self.f(t[i-1], x[i-1], x[i-k]))
+                x[i] = x[i-1] + self.step * self.f(t[i-1], x[i-1], x[i-k])
             i = i + 1
         return t, x
 
@@ -38,7 +38,7 @@ class Hatchinson_Yavna:
         return eval(code)
 
     def f(self, t, x0, x1):
-        return self.m * (1 - x1/100)*x0 # TODO: change 100
+        return self.m * (1 - x1/self.T)*x0 # TODO: change 100
 
     # setter for formula
     def setFormula(self, formula):
